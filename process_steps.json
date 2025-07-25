@@ -1,0 +1,126 @@
+{
+  "process_name": "Weekly Expense Report Overwrite and Refresh",
+  "short_process_description": "Copy and rename the previous week's expense report, then update the week-ending date and refresh the data in SAP EPM Solutions via Excel.",
+  "list_of_applications": [
+    {
+      "application_name": "File Explorer",
+      "type": "System Application",
+      "url": ""
+    },
+    {
+      "application_name": "Microsoft Excel",
+      "type": "Productivity Software",
+      "url": ""
+    },
+    {
+      "application_name": "SAP EPM Solutions Add-in for Microsoft Office",
+      "type": "Add-in",
+      "url": ""
+    }
+  ],
+  "list_of_steps": [
+    {
+      "group_name": "File Navigation",
+      "numbering": "1",
+      "time_stamp": "00:07",
+      "sub_steps": [
+        {
+          "step": "Open File Explorer.",
+          "numbering": "1.1",
+          "time_stamp": "00:07"
+        },
+        {
+          "step": "Navigate to 'Expense' folder.",
+          "numbering": "1.2",
+          "time_stamp": "00:09"
+        },
+        {
+          "step": "Navigate into '2024' folder.",
+          "numbering": "1.3",
+          "time_stamp": "00:10"
+        },
+        {
+          "step": "Navigate into 'Weekly' folder.",
+          "numbering": "1.4",
+          "time_stamp": "00:11"
+        },
+        {
+          "step": "Navigate into 'Expense' subfolder.",
+          "numbering": "1.5",
+          "time_stamp": "00:11"
+        },
+        {
+          "step": "Navigate into 'Engineering' folder.",
+          "numbering": "1.6",
+          "time_stamp": "00:13"
+        }
+      ]
+    },
+    {
+      "group_name": "File Preparation",
+      "numbering": "2",
+      "time_stamp": "00:34",
+      "sub_steps": [
+        {
+          "step": "Locate the file 'Expense_Overhead Report 2024 Engineering Nov wk2.xlsx' (representing Pool 2).",
+          "numbering": "2.1",
+          "time_stamp": "00:21"
+        },
+        {
+          "step": "Copy the located file.",
+          "numbering": "2.2",
+          "time_stamp": "00:46"
+        },
+        {
+          "step": "Rename the copied file to 'Expense_Overhead Report 2024 Engineering Nov wk3.xlsx'.",
+          "numbering": "2.3",
+          "time_stamp": "00:56"
+        },
+        {
+          "step": "Further rename the file to 'Expense_Overhead Report 2024 Engineering Nov wk3 R1.xlsx' (adding 'R1' for revision 1).",
+          "numbering": "2.4",
+          "time_stamp": "01:08"
+        }
+      ]
+    },
+    {
+      "group_name": "Report Refresh in Excel",
+      "numbering": "3",
+      "time_stamp": "01:19",
+      "sub_steps": [
+        {
+          "step": "Open the renamed Excel file 'Expense_Overhead Report 2024 Engineering Nov wk3 R1.xlsx'.",
+          "numbering": "3.1",
+          "time_stamp": "01:19"
+        },
+        {
+          "step": "In the 'Engineering Pool (Pool 2)' tab, update the 'Last Week Ending Date' to '11/02/2024'.",
+          "numbering": "3.2",
+          "time_stamp": "01:51"
+        },
+        {
+          "step": "Click on the 'EPM' tab within Excel.",
+          "numbering": "3.3",
+          "time_stamp": "01:57"
+        },
+        {
+          "step": "Select 'Refresh Workbook' from the 'Refresh' dropdown menu.",
+          "numbering": "3.4",
+          "time_stamp": "01:59"
+        }
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "exception": "EPM General error: Not connected",
+      "description": "If an EPM General error indicating 'You are not connected. Please login again.' appears, the user needs to log in to SAP EPM Solutions by entering their username and password before attempting to refresh the workbook again. This login step is not part of the standard process but a recovery action."
+    }
+  ],
+  "clarifications": [
+    "The file named '2024 Engineering' represents Pool 2.",
+    "The file named '2024 Field Engineering' represents Pool 3.",
+    "The presented Excel file is a simplified version of what is actually used for the pools.",
+    "The re-login to SAP EPM Solutions is a recovery step, not part of the core process."
+  ]
+}

@@ -8,7 +8,7 @@ The structure of the output documentation should include the following sections:
    Provide the name of the process being described.
 
 2. Short Process Description  
-   Offer a brief summary of the process.
+   Offer a brief summary of the process (no longer than 4 sentences).
 
 3. List of Applications Utilized  
    This should be a table that includes the following details for each application used in the process:  
@@ -35,42 +35,4 @@ The structure of the output documentation should include the following sections:
 6. Requires Clarification  
    List any questions you have for the SME or aspects of the process that require further clarification.
 
-IMPORTANT: Output ONLY the JSON object, with no markdown fences, no code blocks, no additional text. It must be valid JSON parsable by JSON.parse().
-
-Provide the output according to this exact JSON format:
-
-{
-  "process_name": "[The name of the process based on the video content]",
-  "short_process_description": "[The short process description based on the video content]",
-  "list_of_applications": [
-    {
-      "application_name": "[Name of the application]",
-      "type": "[Type of the application, e.g., web/desktop]",
-      "url": "[URL of the application, if applicable]"
-    }
-  ],
-  "list_of_steps": [
-    {
-      "group_name": "[Description of the group of steps]",
-      "numbering": "1.0",
-      "time_stamp": "[Timestamp from the video when this step is executed]",
-      "sub_steps": [
-        {
-          "step": "[Description of the sub-step]",
-          "numbering": "1.1",
-          "time_stamp": "[Timestamp from the video when this step is executed]"
-        }
-      ]
-    }
-  ],
-  "exceptions": [
-    {
-      "exception": "[Exception name]",
-      "description": "[Exception description]"
-    }
-  ],
-  "clarifications": [
-    "[Required clarification or question]"
-  ]
-}
 `;

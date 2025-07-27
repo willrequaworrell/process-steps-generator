@@ -1,6 +1,6 @@
 {
   "process_name": "Weekly Overhead Report Update",
-  "short_process_description": "This process outlines the steps to update and refresh the weekly overhead report. It involves navigating through local folders, copying and renaming the relevant Excel file, and then opening the file to update the fiscal week and refresh the data using the SAP EPM add-in. The process includes steps for handling a common EPM login error.",
+  "short_process_description": "This process involves navigating through network folders, copying and renaming an Excel report file, and then updating the data within the Excel file using the SAP EPM Solutions add-in. The process specifically focuses on updating 'Engineering Pool (Pool 2)' and 'Field Engineering (Pool 3)' data by adjusting the week-ending date and refreshing the workbook.",
   "list_of_applications": [
     {
       "application_name": "File Explorer",
@@ -14,7 +14,7 @@
     },
     {
       "application_name": "SAP EPM Solutions Add-in for Microsoft Office",
-      "type": "Add-in",
+      "type": "Desktop Application Add-in",
       "url": "null"
     }
   ],
@@ -22,83 +22,65 @@
     {
       "group_name": "Navigate to Report Folder",
       "numbering": "1.0",
-      "time_stamp": "0:08",
+      "time_stamp": "00:07",
       "sub_steps": [
         {
-          "step": "Click on the \"Expense\" folder in File Explorer.",
+          "step": "Navigate to the 'Expense' folder.",
           "numbering": "1.1",
-          "time_stamp": "0:09",
+          "time_stamp": "00:09",
           "thumbnail": "thumbnails/substep-1_1.jpg"
         },
         {
-          "step": "Click on the \"Engineering\" sub-folder.",
+          "step": "Navigate into the 'Engineering' subfolder.",
           "numbering": "1.2",
-          "time_stamp": "0:13",
+          "time_stamp": "00:13",
           "thumbnail": "thumbnails/substep-1_2.jpg"
         }
       ],
       "thumbnail": "thumbnails/step-1_0.jpg"
     },
     {
-      "group_name": "Prepare Weekly Report File",
+      "group_name": "Copy and Rename Report File",
       "numbering": "2.0",
-      "time_stamp": "0:26",
+      "time_stamp": "00:40",
       "sub_steps": [
         {
-          "step": "Identify the latest \"Expense_Overhead Report 2024 Engineering Nov v4.xlsm\" file (representing Pool 2 for the current week).",
+          "step": "Copy the file named 'Expense_Overhead Report 2024 Engineering Nov v4.xlsm'.",
           "numbering": "2.1",
-          "time_stamp": "0:26",
+          "time_stamp": "00:40",
           "thumbnail": "thumbnails/substep-2_1.jpg"
         },
         {
-          "step": "Copy the identified Excel file.",
+          "step": "Rename the copied file to 'Expense_Overhead Report 2024 Field Engineering Sep v4.xlsm - Copy - Week3 R1.xlsm'.",
           "numbering": "2.2",
-          "time_stamp": "0:40",
+          "time_stamp": "00:57",
           "thumbnail": "thumbnails/substep-2_2.jpg"
-        },
-        {
-          "step": "Rename the copied file to \"Expense_Overhead Report 2024 Engineering Nov v4 wk3 R1.xlsm\" to reflect Week 3, Revision 1.",
-          "numbering": "2.3",
-          "time_stamp": "0:54",
-          "thumbnail": "thumbnails/substep-2_3.jpg"
         }
       ],
       "thumbnail": "thumbnails/step-2_0.jpg"
     },
     {
-      "group_name": "Update and Refresh Data in Excel",
+      "group_name": "Update Report in Excel",
       "numbering": "3.0",
-      "time_stamp": "1:12",
+      "time_stamp": "01:20",
       "sub_steps": [
         {
-          "step": "Open the renamed Excel file \"Expense_Overhead Report 2024 Engineering Nov v4 wk3 R1.xlsm\".",
+          "step": "Open the renamed Excel file 'Expense_Overhead Report 2024 Field Engineering Sep v4.xlsm - Copy - Week3 R1.xlsm'.",
           "numbering": "3.1",
-          "time_stamp": "1:12",
+          "time_stamp": "01:20",
           "thumbnail": "thumbnails/substep-3_1.jpg"
         },
         {
-          "step": "Navigate to cell F26, which contains the fiscal week ending date.",
+          "step": "Change the 'Week Ending' date in the Excel file to '11/02/2024'.",
           "numbering": "3.2",
-          "time_stamp": "1:49",
+          "time_stamp": "01:52",
           "thumbnail": "thumbnails/substep-3_2.jpg"
         },
         {
-          "step": "Update the date in cell F26 to \"11/09/2024\".",
+          "step": "Click on 'EPM' tab then 'Refresh Workbook' to update data.",
           "numbering": "3.3",
-          "time_stamp": "1:55",
+          "time_stamp": "01:57",
           "thumbnail": "thumbnails/substep-3_3.jpg"
-        },
-        {
-          "step": "Click on the \"EPM\" tab in the Excel ribbon.",
-          "numbering": "3.4",
-          "time_stamp": "1:58",
-          "thumbnail": "thumbnails/substep-3_4.jpg"
-        },
-        {
-          "step": "Click \"Refresh Workbook\" from the EPM ribbon.",
-          "numbering": "3.5",
-          "time_stamp": "2:01",
-          "thumbnail": "thumbnails/substep-3_5.jpg"
         }
       ],
       "thumbnail": "thumbnails/step-3_0.jpg"
@@ -106,14 +88,18 @@
   ],
   "exceptions": [
     {
-      "exception": "EPM - General error: Data refresh has failed. Please try to login again.",
-      "description": "If this error occurs after refreshing the workbook, click \"OK\" on the error dialog. This will prompt a login window for \"SAP EPM Solutions Add-in for Microsoft Office\". Enter your username and password, then click \"Log On\". After successfully logging in, re-attempt to refresh the workbook by clicking \"Refresh Workbook\" again."
+      "exception": "EPM General Error",
+      "description": "An 'EPM General error' occurred requiring re-logging into SAP EPM Solutions. The user had to re-enter their username and password to proceed."
     }
   ],
   "clarifications": [
-    "Confirm the exact naming convention for the file (e.g., \"wk#\" and \"R#\") as the narrator mentioned converting \"week two into week three\" during renaming, but the final name includes \"wk3 R1\". Is \"wk3\" always the target fiscal week, or does it dynamically change based on the current week?",
-    "Clarify the criteria for identifying \"Pool 2\" (\"2024 Engineering\") and \"Pool 3\" (\"2024 Field Engineering\") files. Are these fixed associations, or do they vary?",
-    "Verify the source and logic for determining the new fiscal week ending date. Is it always the next calendar week, or is there a specific rule or reference to derive this date?",
-    "Is the SAP EPM login failure a common occurrence? Are there specific conditions (e.g., inactivity, network issues) that typically trigger this error, and are there preventative measures?"
+    "What is the exact purpose of 'Engineering Pool (Pool 2)' versus 'Field Engineering (Pool 3)'?",
+    "What is the complete end-to-end process for generating and finalizing these weekly reports?",
+    "Why is a November (Nov) file copied and renamed for September (Sep) 'Week 3'?",
+    "What data is being referenced or updated by the SAP EPM Solutions add-in and where does it originate?",
+    "Are there specific validation steps after refreshing the workbook to ensure data accuracy?",
+    "What happens after the report data is successfully refreshed? Is it saved, shared, or used for further analysis immediately?",
+    "What is the full URL or connection string for the SAP EPM Solutions if it is not a direct application that can be launched?",
+    "Are there any specific naming conventions or version control procedures for these weekly reports beyond the demonstrated renaming?"
   ]
 }

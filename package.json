@@ -44,6 +44,7 @@
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@google/genai": "^1.11.0",
     "ai": "^4.3.19",
+    "docx": "^9.5.1",
     "dotenv": "^17.2.1",
     "ffmpeg-extract-frames": "^2.0.2",
     "fluent-ffmpeg": "^2.1.3",

@@ -12,6 +12,7 @@ import {
 } from '@google/genai';
 import { ProcessDocument, Step, SubStep } from './types/index.js';
 import { docGeneratePrompt } from './util/prompts.js';
+import { generateWordDocument } from './generateDocument.js';
 
 ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 
@@ -44,7 +45,7 @@ async function main() {
   }
 
   // 1️⃣ Initialize AI client
-  const ai = new GoogleGenAI({ apiKey: "YOUR API KEY" });
+  const ai = new GoogleGenAI({ apiKey: "" });
 
   // 2️⃣ Upload video
   console.log(`Uploading ${videoPath}...`);
@@ -98,7 +99,10 @@ async function main() {
               properties: {
                 group_name: { type: Type.STRING },
                 numbering: { type: Type.STRING },
-                time_stamp: { type: Type.STRING },
+                time_stamp: {
+                  type: Type.STRING,
+                  pattern: '^\\d{2}:\\d{2}:\\d{2}$',
+                },
                 sub_steps: {
                   type: Type.ARRAY,
                   items: {
@@ -184,7 +188,11 @@ async function main() {
     JSON.stringify(processData, null, 2)
   );
   console.log('✅ process_steps_with_thumbs.json generated');
+
+
+  await generateWordDocument(processData, 'Process_Document.docx');
 }
+
 
 main().catch((err) => {
   console.error(err);

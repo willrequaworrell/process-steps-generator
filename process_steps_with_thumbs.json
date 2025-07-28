@@ -1,105 +1,116 @@
 {
-  "process_name": "Weekly Overhead Report Update",
-  "short_process_description": "This process involves navigating through network folders, copying and renaming an Excel report file, and then updating the data within the Excel file using the SAP EPM Solutions add-in. The process specifically focuses on updating 'Engineering Pool (Pool 2)' and 'Field Engineering (Pool 3)' data by adjusting the week-ending date and refreshing the workbook.",
-  "list_of_applications": [
-    {
-      "application_name": "File Explorer",
-      "type": "Desktop Application",
-      "url": "null"
-    },
-    {
-      "application_name": "Microsoft Excel",
-      "type": "Desktop Application",
-      "url": "null"
-    },
-    {
-      "application_name": "SAP EPM Solutions Add-in for Microsoft Office",
-      "type": "Desktop Application Add-in",
-      "url": "null"
-    }
-  ],
   "list_of_steps": [
     {
-      "group_name": "Navigate to Report Folder",
+      "group_name": "Open Engineering Folder",
       "numbering": "1.0",
-      "time_stamp": "00:07",
       "sub_steps": [
         {
-          "step": "Navigate to the 'Expense' folder.",
           "numbering": "1.1",
-          "time_stamp": "00:09",
+          "step": "Open 'Expense' folder",
+          "time_stamp": "00:07",
           "thumbnail": "thumbnails/substep-1_1.jpg"
         },
         {
-          "step": "Navigate into the 'Engineering' subfolder.",
           "numbering": "1.2",
+          "step": "Open 'Engineering' folder",
           "time_stamp": "00:13",
           "thumbnail": "thumbnails/substep-1_2.jpg"
         }
       ],
+      "time_stamp": "00:07",
       "thumbnail": "thumbnails/step-1_0.jpg"
     },
     {
-      "group_name": "Copy and Rename Report File",
+      "group_name": "Copy Previous Week Data",
       "numbering": "2.0",
-      "time_stamp": "00:40",
       "sub_steps": [
         {
-          "step": "Copy the file named 'Expense_Overhead Report 2024 Engineering Nov v4.xlsm'.",
           "numbering": "2.1",
+          "step": "Select prior week's cost data",
           "time_stamp": "00:40",
           "thumbnail": "thumbnails/substep-2_1.jpg"
         },
         {
-          "step": "Rename the copied file to 'Expense_Overhead Report 2024 Field Engineering Sep v4.xlsm - Copy - Week3 R1.xlsm'.",
           "numbering": "2.2",
-          "time_stamp": "00:57",
+          "step": "Copy the data",
+          "time_stamp": "00:41",
           "thumbnail": "thumbnails/substep-2_2.jpg"
+        },
+        {
+          "numbering": "2.3",
+          "step": "Paste the data to the current week.",
+          "time_stamp": "00:46",
+          "thumbnail": "thumbnails/substep-2_3.jpg"
+        },
+        {
+          "numbering": "2.4",
+          "step": "Rename the copied file to reflect current week and revision",
+          "time_stamp": "01:03",
+          "thumbnail": "thumbnails/substep-2_4.jpg"
         }
       ],
+      "time_stamp": "00:20",
       "thumbnail": "thumbnails/step-2_0.jpg"
     },
     {
-      "group_name": "Update Report in Excel",
+      "group_name": "Refresh Data",
       "numbering": "3.0",
-      "time_stamp": "01:20",
       "sub_steps": [
         {
-          "step": "Open the renamed Excel file 'Expense_Overhead Report 2024 Field Engineering Sep v4.xlsm - Copy - Week3 R1.xlsm'.",
           "numbering": "3.1",
-          "time_stamp": "01:20",
+          "step": "Click the 'Last Week Ending Date'",
+          "time_stamp": "01:56",
           "thumbnail": "thumbnails/substep-3_1.jpg"
         },
         {
-          "step": "Change the 'Week Ending' date in the Excel file to '11/02/2024'.",
           "numbering": "3.2",
-          "time_stamp": "01:52",
+          "step": "Refresh workbook",
+          "time_stamp": "01:57",
           "thumbnail": "thumbnails/substep-3_2.jpg"
         },
         {
-          "step": "Click on 'EPM' tab then 'Refresh Workbook' to update data.",
           "numbering": "3.3",
-          "time_stamp": "01:57",
+          "step": "Log in",
+          "time_stamp": "02:08",
           "thumbnail": "thumbnails/substep-3_3.jpg"
+        },
+        {
+          "numbering": "3.4",
+          "step": "Refresh workbook",
+          "time_stamp": "02:35",
+          "thumbnail": "thumbnails/substep-3_4.jpg"
         }
       ],
+      "time_stamp": "01:50",
       "thumbnail": "thumbnails/step-3_0.jpg"
     }
   ],
+  "process_name": "Updating Weekly Engineering Expense Report",
+  "short_process_description": "The process demonstrates how to update the weekly engineering expense report, using previous week's data and refreshing data from the system.",
+  "clarifications": [
+    "How are 'pool two' and 'pool three' differentiated within the file structure?  Which subfolders represent each?"
+  ],
   "exceptions": [
     {
-      "exception": "EPM General Error",
-      "description": "An 'EPM General error' occurred requiring re-logging into SAP EPM Solutions. The user had to re-enter their username and password to proceed."
+      "exception": "Login Timeout or other Login failure during refresh. The refresh process requires logging in.  If the user does not log in within the timeout period or if there are other errors during login, the refresh process may fail. In case of failure, the process must be restarted"
     }
   ],
-  "clarifications": [
-    "What is the exact purpose of 'Engineering Pool (Pool 2)' versus 'Field Engineering (Pool 3)'?",
-    "What is the complete end-to-end process for generating and finalizing these weekly reports?",
-    "Why is a November (Nov) file copied and renamed for September (Sep) 'Week 3'?",
-    "What data is being referenced or updated by the SAP EPM Solutions add-in and where does it originate?",
-    "Are there specific validation steps after refreshing the workbook to ensure data accuracy?",
-    "What happens after the report data is successfully refreshed? Is it saved, shared, or used for further analysis immediately?",
-    "What is the full URL or connection string for the SAP EPM Solutions if it is not a direct application that can be launched?",
-    "Are there any specific naming conventions or version control procedures for these weekly reports beyond the demonstrated renaming?"
+  "list_of_applications": [
+    {
+      "application_name": "Microsoft Teams",
+      "type": "Desktop Application"
+    },
+    {
+      "application_name": "File Explorer",
+      "type": "Desktop Application"
+    },
+    {
+      "application_name": "Microsoft Excel",
+      "type": "Desktop Application"
+    },
+    {
+      "application_name": "SAP for EPM Add-in for Microsoft Office",
+      "type": "Plugin"
+    }
   ]
 }

@@ -39,7 +39,7 @@ function extractFrame(
   });
 }
 
-async function main() {
+async function main(): Promise<void> {
   const [videoPath, transcriptPath] = process.argv.slice(2);
   if (!videoPath || !transcriptPath) {
     console.error('Usage: npm start <video.mp4> <transcript.txt>');
@@ -47,7 +47,7 @@ async function main() {
   }
 
   // 1. Initialize the AI client using the API key from your .env file
-  const ai = new GoogleGenAI({ apiKey: "AIzaSyBwLYlWj58dPX1NduBeTr4cphbnNL3Z_V0" });
+  const ai = new GoogleGenAI({ apiKey: "AIzaSyAgwonle5gLHByu_jJhM8FK0M8HJZpxt1o" });
 
   // 2. Upload the video and poll until it's processed and ready
   console.log(`Uploading ${videoPath}...`);
@@ -68,7 +68,7 @@ async function main() {
 
   // 4. Call the AI with the rich, self-documenting schema
   const response = await ai.models.generateContent({
-    model: 'gemini-1.5-pro-latest', // Use a powerful model for the best results
+    model: 'gemini-2.5-flash', // Use a powerful model for the best results
     contents: createUserContent([
       createPartFromUri(file.uri, file.mimeType),
       `TRANSCRIPT:\n${transcript}`,
